@@ -1,0 +1,337 @@
+<!-- Made from https://www.youtube.com/watch?v=lPJVi797Uy0 -->
+<!-- Source code: https://github.com/fireship-io/wavy-curvey-blobby-website-->
+<!-- Credits to Fireship -->
+
+
+<!-- Was generated with "!" + tab autocompletion -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
+
+    <!-- Script to animate the blobs! From https://thednp.github.io/kute.js/svgMorph.html -->
+    <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Prompt', sans-serif;
+            color: white;
+            background: #202731;
+            overflow-x: hidden;
+        }
+
+        section {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 400px;
+            padding: 100px 20vw;
+            /* viewport width, more responsive to different envs */
+        }
+
+        .blue {
+            background: #0066ff;
+        }
+
+        .red {
+            background: #dd3f31;
+        }
+
+        .pink {
+            background: #ff0066;
+        }
+
+        .dark {
+            background: #0f0f10;
+        }
+        
+        .purple {
+            background: #3c31dd;
+        }
+
+        .curve {
+            position: absolute;
+            height: 225px;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .curve::before {
+            content: '';
+            display: block;
+            position: absolute;
+            border-radius: 100% 50%;
+            /* Giving two parameters gives an ellipse, instead of a circle */
+            width: 55%;
+            height: 100%;
+            background-color: hsl(244, 72%, 53%);
+            transform: translate(85%, 60%);
+            /* move the circle to a different location */
+
+        }
+
+        .curve::after {
+            content: '';
+            display: block;
+            position: absolute;
+            border-radius: 100% 50%;
+            width: 55%;
+            height: 100%;
+            background: #3c31dd;
+            transform: translate(-4%, 40%);
+            z-index: -1;
+        }
+       
+
+        .bubble {
+            background: #ff0066
+        }
+
+        .bubble::after {
+            content: '';
+            border-top-left-radius: 50% 100%;
+            border-top-right-radius: 50% 100%;
+            position: absolute;
+            bottom: 0;
+            height: 85%;
+            width: 100%;
+            background-color: #0f0f10;
+            z-index: -1;
+
+        }
+
+        /* All the following was generated at https://www.shapedivider.app/ */
+        .wave-opacity {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-opacity svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 182px;
+        }
+
+        .wave-opacity .shape-fill {
+            fill: #FFFFFF;
+        }
+
+        .wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave svg {
+            position: relative;
+            display: block;
+            width: calc(149% + 1.3px);
+            height: 182px;
+        }
+
+        .wave .shape-fill {
+            fill: red;
+        }
+
+        /* The following was used using https://app.haikei.app/ */
+        .spacer {
+            aspect-ratio: 900/360;
+            /* We know the aspect ratio from the webapp */
+            width: 100%;
+            background-repeat: no-repeat;
+            /* So the element doesn't take up the entire space*/
+            background-position: center;
+            background-size: cover;
+        }
+
+        .layer1 {
+            background-image: url('./layer1.svg');
+        }
+
+        .layer2 {
+            background-image: url('./layer2.svg');
+        }
+
+        .blob-motion {
+            position: absolute;
+            transform: translateY(-20%);
+            z-index: 0;
+        }
+        .blob-content {
+            z-index: 1;
+        }
+        .blobs {
+            width: 100%;
+            background: url('./blobs.svg') no-repeat bottom / cover;
+        }
+    </style>
+</head>
+
+<!-- This entire body was generated with the following Emmet abbreviation: -->
+<!-- section*5>(h1>{Nice Curves})+p>lorem -->
+
+<body>
+    <section class="blue">
+        <h1>Nice curves</h1>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatum debitis aperiam sapiente,suscipit
+            delectus
+            id sed exercitationem sit quia dicta culpa reprehenderit, eos, ullam numquam consequuntur natus possimus
+            praesentium?
+        </p>
+        <div class="curve"></div>
+    </section>
+    <section class="dark">
+        <h1>Nice curves</h1>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatum debitis aperiam sapiente,suscipit
+            delectus
+            id sed exercitationem sit quia dicta culpa reprehenderit, eos, ullam numquam consequuntur natus possimus
+            praesentium?
+        </p>
+        <div class="curve"></div>
+    </section>
+
+    <section class="bubble">
+        <h1>Nice curves</h1>
+        <p>
+            Ullam tempora mollitia sunt voluptatum, ab, minus rem dicta enim officia a voluptatem sequiconsequuntur
+            voluptas,
+            quidem repellendus unde? Recusandae suscipit magnam delectus maiores, molestias impedit aperiam nam fuga
+            unde.
+        </p>
+    </section>
+
+
+    <section class="blue">
+        <h1>Nice curves</h1>
+        <p>
+            Rem adipisci impedit commodi dignissimos voluptatem consequuntur vel at quasi suscipit natus,et praesentium
+            eos
+            veniam voluptatibus nulla sunt voluptates ratione! Maiores veniam culpa pariatur tempora? Minus corporis
+            adipisci iusto.
+        </p>
+        <div class="wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <div class="spacer layer1"></div>
+
+    <section class="dark">
+        <h1>Nice curves</h1>
+        <p>
+            Ullam tempora mollitia sunt voluptatum, ab, minus rem dicta enim officia a voluptatem sequiconsequuntur
+            voluptas,
+            quidem repellendus unde? Recusandae suscipit magnam delectus maiores, molestias impedit aperiam nam fuga
+            unde.
+        </p>
+    </section>
+
+    <section class="red">
+        <h1>Nice curves</h1>
+        <p>
+            Dolorem, sint modi. Possimus pariatur quia ad sed autem quos saepe excepturi veritatis impeditvoluptate
+            voluptas
+            consequatur vel esse maiores sit, enim ullam! Quos delectus eius nihil consequuntur, maxime similique.
+        </p>
+        <div class="wave-opacity">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                    opacity=".25" class="shape-fill"></path>
+                <path
+                    d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                    opacity=".5" class="shape-fill"></path>
+                <path
+                    d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <div class="spacer layer2"></div>
+
+    <section class="pink">
+        <h1>Nice curves</h1>
+        <p>
+            Aliquam repellendus quae consectetur veniam hic aperiam, excepturi totam fugiat qui molestias ipsa,similique
+            amet
+            expedita laudantium culpa vel doloribus, cupiditate velit consequatur facilis facere. Suscipit facere totam
+            laborum! Repudiandae?
+        </p>
+
+        <!-- From https://app.haikei.app/ -->
+        <svg id="visual" viewBox="0 0 900 360" width="900" height="360" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+            <!-- <rect x="0" y="0" width="900" height="360" fill="#FF0066"></rect> -->
+            <!-- We do not want to  -->
+
+            <!-- <g transform="translate(441.41407019969523 162.59375843265144)">
+                <path id="blob1"
+                    d="M75.4 -70.9C103.3 -47.6 135.1 -23.8 134.1 -1.1C133 21.7 99 43.4 71.2 72.2C43.4 101 21.7 137 -10.4 147.4C-42.4 157.8 -84.9 142.5 -103.9 113.7C-122.9 84.9 -118.4 42.4 -107.8 10.6C-97.2 -21.2 -80.4 -42.4 -61.4 -65.8C-42.4 -89.1 -21.2 -114.5 1.3 -115.8C23.8 -117.1 47.6 -94.3 75.4 -70.9"
+                    fill="#BB004B"></path>
+            </g> -->
+
+            <!-- <g transform="translate(433.48801822141877 184.3658367995143)">
+                <path id="blob2"
+                    d="M103.6 -97.8C130 -77.3 144 -38.7 139.4 -4.6C134.8 29.5 111.6 58.9 85.3 77.8C58.9 96.6 29.5 104.8 -5.7 110.5C-40.8 116.1 -81.6 119.2 -96.6 100.4C-111.6 81.6 -100.8 40.8 -101.6 -0.8C-102.4 -42.4 -114.9 -84.9 -99.9 -105.4C-84.9 -125.9 -42.4 -124.4 -1.9 -122.5C38.7 -120.7 77.3 -118.3 103.6 -97.8"
+                    fill="#BB004B"></path>
+            </g> -->
+
+            <g transform="translate(458.54989479431924 166.84500146079387)">
+                <path id="blob3"
+                    d="M64.3 -59.1C86.1 -42.4 108.5 -21.2 109.6 1.1C110.7 23.3 90.3 46.7 68.5 73.7C46.7 100.7 23.3 131.3 -4.9 136.3C-33.2 141.2 -66.5 120.5 -88.1 93.5C-109.8 66.5 -119.9 33.2 -124.5 -4.6C-129.1 -42.4 -128.2 -84.9 -106.5 -101.5C-84.9 -118.2 -42.4 -109.1 -10.6 -98.5C21.2 -87.9 42.4 -75.8 64.3 -59.1"
+                    fill="#BB004B"></path>
+            </g>
+
+            <g transform="translate(448.30654641980345 177.59630736378887)" style ="visibility: hidden">
+                <path id="blob5"
+                    d="M72.4 -65.1C102.4 -42.4 141.2 -21.2 147.1 5.9C153 33 126 66 96 89.2C66 112.3 33 125.7 -0.4 126C-33.7 126.4 -67.4 113.7 -94.9 90.6C-122.4 67.4 -143.7 33.7 -144.5 -0.8C-145.4 -35.4 -125.7 -70.7 -98.2 -93.4C-70.7 -116 -35.4 -126 -7.1 -119C21.2 -111.9 42.4 -87.8 72.4 -65.1"
+                    fill="#BB004B"></path>
+            </g>
+
+            <g transform="translate(460.38116784071167 167.67960358610435)" style ="visibility: hidden">
+                <path id="blob6"
+                    d="M91.9 -89.6C110.7 -73.1 111.9 -36.5 109.6 -2.2C107.4 32.1 101.8 64.1 82.9 85.6C64.1 107.1 32.1 118.1 -5.2 123.2C-42.4 128.4 -84.9 127.9 -108.4 106.4C-131.9 84.9 -136.4 42.4 -125.8 10.6C-115.2 -21.2 -89.4 -42.4 -65.9 -58.9C-42.4 -75.4 -21.2 -87.2 7.7 -94.9C36.5 -102.5 73.1 -106.1 91.9 -89.6"
+                    fill="#BB004B"></path>
+            </g>
+        </svg>
+
+        <script>
+            const tween = KUTE.fromTo(
+              '#blob3',
+              { path: '#blob3' },
+              { path: '#blob5' },
+              { repeat: 999, duration: 3000, yoyo: true }
+            ).start();
+        </script>
+    </section>
+
+</body>
+
+</html>
