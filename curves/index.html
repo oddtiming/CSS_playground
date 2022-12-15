@@ -64,6 +64,7 @@
             height: 225px;
             width: 100%;
             bottom: 0;
+            text-align: center;
         }
 
         .curve::before {
@@ -71,13 +72,10 @@
             display: block;
             position: absolute;
             border-radius: 100% 50%;
-            /* Giving two parameters gives an ellipse, instead of a circle */
             width: 55%;
             height: 100%;
-            background-color: hsl(244, 72%, 53%);
             transform: translate(85%, 60%);
-            /* move the circle to a different location */
-
+            background-color: hsl(216, 21%, 16%);
         }
 
         .curve::after {
@@ -87,7 +85,7 @@
             border-radius: 100% 50%;
             width: 55%;
             height: 100%;
-            background: #3c31dd;
+            background-color: #3c31dd;
             transform: translate(-4%, 40%);
             z-index: -1;
         }
@@ -189,7 +187,7 @@
 <!-- section*5>(h1>{Nice Curves})+p>lorem -->
 
 <body>
-    <section class="blue">
+    <section class="purple">
         <h1>Nice curves</h1>
         <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatum debitis aperiam sapiente,suscipit
@@ -199,7 +197,7 @@
         </p>
         <div class="curve"></div>
     </section>
-    <section class="dark">
+    <section>
         <h1>Nice curves</h1>
         <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatum debitis aperiam sapiente,suscipit
@@ -207,7 +205,6 @@
             id sed exercitationem sit quia dicta culpa reprehenderit, eos, ullam numquam consequuntur natus possimus
             praesentium?
         </p>
-        <div class="curve"></div>
     </section>
 
     <section class="bubble">
